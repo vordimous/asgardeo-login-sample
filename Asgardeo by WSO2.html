@@ -1,0 +1,194 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="icon"
+      href="https://accounts.asgardeo.io/t/adanelz_corp/authenticationendpoint/libs/themes/asgardio/assets/images/branding/favicon.ico"
+      type="image/x-icon"
+    />
+    <link href="./Asgardeo by WSO2_files/theme.75f554a2.min.css" rel="stylesheet" />
+
+    <title>Asgardeo by WSO2</title>
+
+    <script src="./Asgardeo by WSO2_files/jquery-3.4.1.js"></script>
+    <script src="./Asgardeo by WSO2_files/ai.2.min.js" crossorigin="anonymous"></script>
+
+    <script src="./Asgardeo by WSO2_files/tag-f96b2fcd5c044353cccbcebe888f049d.js" crossorigin="anonymous" type="text/javascript"></script>
+  </head>
+  <body class="login-portal layout authentication-portal-layout" onload="checkSessionKey()">
+    <div id="downtime-banner" class="ui inline nag downtime-banner">
+      <span class="title">
+        <p>
+          Asgardeo services will be unavailable on <b>10 May 2021 between 10.00 AM to 3.00 PM IST</b> due to a planned maintenance. <br />For more information,
+          contact <a href="mailto:asgardeo-help@wso2.com">asgardeo-help@wso2.com</a>
+        </p>
+      </span>
+    </div>
+
+    <script src="./Asgardeo by WSO2_files/api.js" async="" defer=""></script>
+
+    <div class="ui modal tiny notify" id="asg-modal-0">
+      <div class="animated-icon text-center">
+        <div class="svg-box" data-testid="session-timeout-modal-warning-animated-icon">
+          <svg class="circular warning-stroke">
+            <circle class="path" cx="75" cy="75" r="50" fill="none" stroke-width="2" stroke-miterlimit="10"></circle>
+          </svg>
+          <svg class="warning-icon warning-stroke">
+            <g transform="matrix(1,0,0,1,-615.516,-257.346)">
+              <g transform="matrix(0.56541,-0.56541,0.56541,0.56541,93.7153,495.69)">
+                <path class="line" d="M634.087,300.805L673.361,261.53" fill="none"></path>
+              </g>
+              <g transform="matrix(2.27612,-2.46519e-32,0,2.27612,-792.339,-404.147)">
+                <circle class="dot" cx="621.52" cy="316.126" r="1.318"></circle>
+              </g>
+            </g>
+          </svg>
+        </div>
+      </div>
+      <div class="content text-center">
+        <div class="description">
+          <div class="ui header" id="asg-modal-0-title">
+            <b>This sign-in instance is about to timeout!</b>
+          </div>
+          <p id="asg-modal-0-description">
+            You have been idle in this page for too long. For security reasons,you need to start over or you will be redirected to the sign-in page
+          </p>
+        </div>
+      </div>
+      <div class="actions">
+        <div class="ui deny button" id="asg-modal-0-dismiss-button">Dismiss</div>
+
+        <div class="ui primary button" id="asg-modal-0-action-button">Start over</div>
+      </div>
+    </div>
+
+    <div class="page-wrapper">
+      <main class="center-segment">
+        <div class="ui container medium center aligned middle aligned">
+
+          <div class="theme-icon inline auto transparent product-logo portal-logo">
+            <img src="./Asgardeo by WSO2_files/asgardeo-logo.svg" />
+          </div>
+
+          <div class="ui segment">
+            <h3 class="ui header">Sign In</h3>
+
+            <div class="segment-form">
+              <div class="ui visible negative message" style="display: none" id="error-msg" data-testid="login-page-error-message"></div>
+
+              <form class="ui large form" action="" method="post" id="loginForm">
+                <div class="field">
+                  <div class="ui fluid left icon input">
+                    <input
+                      type="text"
+                      id="usernameUserInput"
+                      value=""
+                      name="usernameUserInput"
+                      tabindex="1"
+                      placeholder="Email address"
+                      data-testid="login-page-username-input"
+                      required=""
+                    />
+                    <i aria-hidden="true" class="envelope outline icon"></i>
+                    <input id="username" name="username" type="hidden" value="null" />
+                  </div>
+                </div>
+
+                <div class="field m-0">
+                  <div class="ui fluid left icon input">
+                    <input
+                      type="password"
+                      id="password"
+                      name="password"
+                      value=""
+                      autocomplete="off"
+                      tabindex="2"
+                      placeholder="Password"
+                      data-testid="login-page-password-input"
+                    />
+                    <i aria-hidden="true" class="lock icon"></i>
+                    <i id="password-eye" class="eye icon right-align password-toggle slash"></i>
+                  </div>
+                </div>
+
+                <div class="buttons mt-2"></div>
+
+                <div class="ui divider hidden"></div>
+
+                <div class="field external-link-container text-small">
+                  <div class="ui checkbox">
+                    <input tabindex="3" type="checkbox" id="chkRemember" name="chkRemember" data-testid="login-page-remember-me-checkbox" />
+                    <label>Remember me on this computer</label>
+                  </div>
+                </div>
+                <input type="hidden" name="sessionDataKey" value="3d31d374-4cc7-4004-98cc-3defd7c97c4f" />
+
+                <div class="mt-0">
+                  <div class="buttons">
+                    <button
+                      type="submit"
+                      class="ui primary fluid large button"
+                      tabindex="4"
+                      role="button"
+                      data-testid="login-page-continue-login-button"
+                      id="sign-in-button"
+                    >
+                      Sign In
+                    </button>
+                  </div>
+                </div>
+              </form>
+
+              <form action="" method="post" id="restartFlowForm">
+                <input type="hidden" name="sessionDataKey" value="3d31d374-4cc7-4004-98cc-3defd7c97c4f" />
+                <input type="hidden" name="restart_flow" value="true" />
+              </form>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <div class="ui container fluid">
+          <div class="ui text stackable menu">
+            <div class="left menu">
+              <a class="item no-hover">
+                ©
+                <script>
+                  document.write(new Date().getFullYear());
+                </script>
+                2021 WSO2 Inc. All Rights Reserved
+              </a>
+            </div>
+            <div class="right menu">
+              <a
+                class="item"
+                href="https://wso2.com/asgardeo/privacy-policy"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-testid="login-page-privacy-policy-link"
+              >
+                Privacy Policy
+              </a>
+              <a
+                class="item"
+                href="https://wso2.com/asgardeo/terms-of-use"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-testid="login-page-privacy-policy-link"
+              >
+                Terms of Service
+              </a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script src="./Asgardeo by WSO2_files/semantic.min.js"></script>
+  </body>
+</html>
